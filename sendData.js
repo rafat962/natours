@@ -27,10 +27,7 @@ const tours = JSON.parse(file)
 const importData = async(req,res,next)=>{
     try{
         await Review.create(tours,{validateBeforeSave:false})
-        console.log('upload-sucess')
     } catch(err){
-        console.log('upload-no-sucess')
-        console.log(err.message)
     }
     process.exit();
 }
@@ -38,10 +35,7 @@ const importData = async(req,res,next)=>{
 const deleteData = async ()=>{
     try{
         await Review.deleteMany()
-        console.log('delete-ucess')
     }catch(err){
-        console.log('delete-no-sucess')
-        console.log(err)
     }
     process.exit();
 }

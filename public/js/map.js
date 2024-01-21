@@ -54,7 +54,7 @@ function(Map, MapView,Compass,Fullscreen,Zoom,Graphic) {
         result.push([all_location[i], all_location[i + 1]]);
     }
     
-    console.log(result);
+    
     
     
     

@@ -4,7 +4,7 @@ const changedata = async (name,email,userid,formData) =>{
     try{
         const res = await axios({
             method:'PATCH',
-            url:`http://127.0.0.1:8000/api/v1/users/${userid}`,
+            url:`/api/v1/users/${userid}`,
             data:{
                 name:name,
                 email:email
@@ -16,7 +16,7 @@ const changedata = async (name,email,userid,formData) =>{
         if(formData){
             const ress = await axios({
                 method:'PATCH',
-                url:`http://127.0.0.1:8000/api/v1/users/uploadImage`,
+                url:`/api/v1/users/uploadImage`,
                 data:formData,
                 headers:{
                     authorization:`Bearer ${document.cookie.slice(4)}`
@@ -27,7 +27,7 @@ const changedata = async (name,email,userid,formData) =>{
             location.reload(true)
         })
     }catch(err){
-        console.log(err)
+        
     }
 }
 document.querySelector('.form-user-data').addEventListener('submit',(e)=>{
@@ -47,12 +47,12 @@ document.querySelector('.form-user-data').addEventListener('submit',(e)=>{
 })
 
 //----------------- change Password -----------------
-
+//http://127.0.0.1:8000/api
 const changePassword = async (Current_password,new_password,password_confirm) =>{
     try{
         const res = await axios({
             method:'PATCH',
-            url:`http://127.0.0.1:8000/api/v1/users/UpdatePassword`,
+            url:`/v1/users/UpdatePassword`,
             data:{
                 pastPassword:Current_password,
                 password:new_password,
@@ -70,7 +70,7 @@ const changePassword = async (Current_password,new_password,password_confirm) =>
             location.assign('/')
         })
     }catch(err){
-        console.log(err)
+        
     }
 }
 

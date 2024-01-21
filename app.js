@@ -7,6 +7,10 @@ const viewRouting = require('./Routers/viewRoutes')
 const bookingRouting = require('./Routers/BookingRoutes')
 const app = express()
 const path = require('path')
+const compression = require('compression')
+
+
+
 const cors = require('cors')
 const cookieParser = require('cookie-parser') 
 //--------------------------- configrations --------------------------- 
@@ -16,11 +20,12 @@ app.use(express.static(`${__dirname}/public`))
 app.set('view engine','pug')
 app.set('views',path.join(__dirname,'views'))
 app.use(cors())
-
 app.use("morgan",(req,res,next)=>{
-    console.log(morgan('dev'))
     next()
 })
+
+app.use(compression())
+
 
 //--------------------------- Routers ---------------------------
 app.use('/api/v1/tours',tourRouting)

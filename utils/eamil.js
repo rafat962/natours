@@ -33,7 +33,7 @@ exports.sendmailreset = async options =>{
         to: options.email,
         from: 'rafat kamel mohamed',
         subject: 'Reset Password',
-        text: `You can reset your password from here: http://127.0.0.1:8000/api/v1/users/resetPassword2/${options.token}`
+        text: `You can reset your password from here: /api/v1/users/resetPassword2/${options.token}`
     }
     
     await transporter.sendMail(mailOption)

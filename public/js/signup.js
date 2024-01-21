@@ -8,7 +8,7 @@ const signup = async (name,email,password,confirm_password,formData) =>{
 
         const res = await axios({
             method:'POST',
-            url:'http://127.0.0.1:8000/api/v1/users/signup',
+            url:'/api/v1/users/signup',
             data:{
                 name:name,
                 email:email,
@@ -19,7 +19,7 @@ const signup = async (name,email,password,confirm_password,formData) =>{
         if(formData){
             const ress = await axios({
                 method:'PATCH',
-                url:`http://127.0.0.1:8000/api/v1/users/uploadImage`,
+                url:`/api/v1/users/uploadImage`,
                 data:formData,
                 headers:{
                     authorization:`Bearer ${res.data.token}`
@@ -31,7 +31,7 @@ const signup = async (name,email,password,confirm_password,formData) =>{
             location.assign('/')
         })
     }catch(err){
-        console.log(err)
+        
     }
 }
 
